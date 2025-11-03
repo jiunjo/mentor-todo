@@ -7,12 +7,22 @@ export default function EditPage() {
   const mode = searchParams.get("mode"); // ✅ URL에서 mode 추출
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const TITLE_MAX = 30;
+  const CONTENT_MAX = 200;
 
   const handleSave = () => {
     const trimmedTitle = title.trim();
     const trimmedContent = content.trim();
     if (!trimmedTitle || !trimmedContent) {
       alert("제목과 내용을 모두 입력하세요.");
+      return;
+    }
+    if (trimmedTitle.length > TITLE_MAX) {
+      alert(`제목은 최대 ${TITLE_MAX}자까지 입력 가능합니다.`);
+      return;
+    }
+    if (trimmedContent.length > CONTENT_MAX) {
+      alert(`내용은 최대 ${CONTENT_MAX}자까지 입력 가능합니다.`);
       return;
     }
 
@@ -45,6 +55,7 @@ export default function EditPage() {
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Todo 제목을 입력하세요"
               className="form-input"
+              maxLength={TITLE_MAX}
             />
           </div>
           <div className="form-group">
@@ -58,6 +69,7 @@ export default function EditPage() {
               placeholder="Todo 내용을 입력하세요"
               rows={5}
               className="form-textarea"
+              maxLength={CONTENT_MAX}
             />
           </div>
           <div className="form-group">
@@ -68,5 +80,5 @@ export default function EditPage() {
     );
   }
 
-  return <h1>{mode === "edit" ? "수정 모드" : "생성 모드"}</h1>;
+  return <h1>{mode === "update" ? "수정 모드" : "생성 모드"}</h1>;
 }
