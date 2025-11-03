@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import "../App.css";
 
-export default function EditPage() {
+export default function CreatePage() {
   const [searchParams] = useSearchParams();
   const mode = searchParams.get("mode"); // ✅ URL에서 mode 추출
   const [title, setTitle] = useState("");

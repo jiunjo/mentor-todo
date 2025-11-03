@@ -1,6 +1,6 @@
 // App.jsx
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EditPage from "./pages/EditPage.jsx";
+import CreatePage from "./pages/CreatePage.jsx";
 import MainPage from "./pages/MainPage.jsx";
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/edit" element={<EditPage />} />
+        <Route path="/edit" element={<CreatePage />} />
       </Routes>
     </BrowserRouter>
   );
