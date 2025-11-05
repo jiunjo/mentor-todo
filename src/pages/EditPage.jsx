@@ -9,6 +9,11 @@ export default function EditPage() {
   const mode = searchParams.get("mode");
   const id = searchParams.get("id");
 
+  // 유효하지 않은 모드인 경우 먼저 체크
+  if (mode !== "create" && mode !== "update") {
+    return <ErrorPage />;
+  }
+
   // 데이터 모드: 데이터 로직을 hook으로 분리
   const {
     title,
@@ -25,18 +30,10 @@ export default function EditPage() {
   const handleSave = () => {
     const result = save();
     if (result.success) {
-      // 성공 메시지는 상태로 처리 (데이터 모드)
       alert(mode === "update" ? "수정되었습니다." : "저장되었습니다.");
       navigate("/");
-    } else {
-      // 에러가 있으면 콘솔에 출력
-      console.error("저장 실패:", result.error);
     }
   };
-
-  if (mode !== "create" && mode !== "update") {
-    return <ErrorPage />;
-  }
 
   return (
     <div className="container">
@@ -73,8 +70,8 @@ export default function EditPage() {
           />
         </div>
         {error && (
-          <div className="form-group" style={{ color: "red" }}>
-            {error}
+          <div className="form-group">
+            <div className="error-message">{error}</div>
           </div>
         )}
         <div className="form-group">

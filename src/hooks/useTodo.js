@@ -42,17 +42,9 @@ export const useTodo = (mode, id) => {
     }
 
     // mode/id 분기 검증
-    if (mode === "update") {
-      if (!id) {
-        setError("수정 모드에서는 ID가 필요합니다.");
-        return { success: false };
-      }
-    } else if (mode === "create") {
-      // create 모드에서는 id가 없어야 함
-      if (id) {
-        setError("생성 모드에서는 ID가 필요하지 않습니다.");
-        return { success: false };
-      }
+    if (mode === "update" && !id) {
+      setError("수정 모드에서는 ID가 필요합니다.");
+      return { success: false };
     }
 
     setLoading(true);

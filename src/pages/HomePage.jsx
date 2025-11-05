@@ -33,7 +33,7 @@ export default function HomePage() {
         ) : todos.length === 0 ? (
           <div>등록된 Todo가 없습니다.</div>
         ) : (
-          <div>
+          <>
             {todos.map((todo) => (
               <div key={todo.id} className="todo-item">
                 <h3>{todo.title}</h3>
@@ -49,7 +49,7 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
+          </>
         )}
       </div>
     </div>
