@@ -1,14 +1,16 @@
 // App.jsx
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CreatePage from "./pages/CreatePage.jsx";
-import MainPage from "./pages/MainPage.jsx";
+import EditPage from "./pages/EditPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/edit" element={<CreatePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/edit" element={<EditPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

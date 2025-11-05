@@ -1,3 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 .edit-container {
   margin-top: 2rem;
   max-width: 500px;
@@ -11,6 +27,7 @@
 .form-label {
   display: block;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .form-input {
@@ -28,5 +45,93 @@
   border-radius: 4px;
   border: 1px solid #ccc;
   resize: vertical;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #f5f5f5;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+button.primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button.danger {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
+button.danger:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.todo-list {
+  margin-top: 2rem;
+}
+
+.todo-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.todo-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.todo-item p {
+  margin: 0 0 1rem 0;
+  color: #666;
+  white-space: pre-wrap;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.page-title.create {
+  color: #040510;
+}
+
+.page-title.update {
+  color: #28a745;
 }
 

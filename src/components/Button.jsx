@@ -8,5 +8,9 @@ export default function Button({ mode, children }) {
     navigate(`/edit?mode=${mode}`);
   };
 
-  return <button onClick={handleClick}>{children}</button>;
+  return (
+    <button className="primary" onClick={handleClick}>
+      {children}
+    </button>
+  );
 }
