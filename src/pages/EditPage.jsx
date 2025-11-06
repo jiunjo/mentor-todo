@@ -76,7 +76,7 @@ export default function EditPage() {
         )}
         <div className="form-group">
           <button className="primary" onClick={handleSave} disabled={loading}>
-            {loading ? "저장 중..." : mode === "update" ? "수정 저장" : "저장"}
+            {mode === "update" ? "수정 저장" : "저장"}
           </button>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { useTodoList } from "../hooks/useTodoList.js";
 export default function HomePage() {
   const navigate = useNavigate();
   // 데이터 모드: 데이터 로직을 hook으로 분리
-  const { todos, loading, deleteTodo } = useTodoList();
+  const { todos, deleteTodo } = useTodoList();
 
   const handleTodoClick = (id) => {
     navigate(`/edit?mode=update&id=${id}`);
@@ -28,28 +28,24 @@ export default function HomePage() {
       </div>
       <div className="todo-list">
         <h2>Todo 목록</h2>
-        {loading ? (
-          <div>로딩 중...</div>
-        ) : todos.length === 0 ? (
+        {todos.length === 0 ? (
           <div>등록된 Todo가 없습니다.</div>
         ) : (
-          <>
-            {todos.map((todo) => (
-              <div key={todo.id} className="todo-item">
-                <h3>{todo.title}</h3>
-                <p>{todo.content}</p>
-                <div className="todo-actions">
-                  <button onClick={() => handleTodoClick(todo.id)}>수정</button>
-                  <button
-                    className="danger"
-                    onClick={() => handleDelete(todo.id)}
-                  >
-                    삭제
-                  </button>
-                </div>
+          todos.map((todo) => (
+            <div key={todo.id} className="todo-item">
+              <h3>{todo.title}</h3>
+              <p>{todo.content}</p>
+              <div className="todo-actions">
+                <button onClick={() => handleTodoClick(todo.id)}>수정</button>
+                <button
+                  className="danger"
+                  onClick={() => handleDelete(todo.id)}
+                >
+                  삭제
+                </button>
               </div>
-            ))}
-          </>
+            </div>
+          ))
         )}
       </div>
     </div>

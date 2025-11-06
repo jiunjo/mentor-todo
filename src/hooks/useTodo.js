@@ -15,7 +15,7 @@ export const useTodo = (mode, id) => {
     if (mode === "update" && id) {
       const todo = todoStorage.findById(id);
       if (todo) {
-        setTitle(todo.title || "");
+        setTitle(todo.title || ""); //todo가 안전한지 몰라서 초기값 에러 방지
         setContent(todo.content || "");
       }
     }
@@ -23,8 +23,8 @@ export const useTodo = (mode, id) => {
 
   // 저장 함수
   const save = () => {
-    setError("");
-    const trimmedTitle = title.trim();
+    setError(""); //이전 에러 초기화
+    const trimmedTitle = title.trim(); 
     const trimmedContent = content.trim();
 
     // 유효성 검사
